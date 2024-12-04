@@ -69,6 +69,33 @@
             background-color: #51cf66;
             color: white;
         }
+         /* Media Queries for responsiveness */
+         @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem; /* Smaller heading on smaller screens */
+            }
+            .form-container {
+                width: 85%; /* Adjust width for smaller screens */
+                padding: 20px;
+            }
+            button {
+                font-size: 1rem; /* Adjust button size */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2rem; /* Even smaller heading on very small screens */
+            }
+            .form-container {
+                width: 90%; /* Full width on very small screens */
+                padding: 15px;
+            }
+            input, select, button {
+                padding: 10px; /* Smaller input fields */
+                font-size: 0.9rem; /* Smaller font size for inputs */
+            }
+        }
     </style>
 </head>
 <body>
