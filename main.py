@@ -37,18 +37,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Serve static files (CSS, JS, images)
-app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Serve the HTML file (api2.html)
-@app.get("/", response_class=HTMLResponse)
-async def read_html():
-    try:
-        with open("static/api2.html", "r") as f:
-            return HTMLResponse(content=f.read())
-    except Exception as e:
-        logger.error("Error loading HTML file: %s", e)
-        raise HTTPException(status_code=500, detail="An error occurred while loading the HTML file.")
 
 # Load reference data
 try:
