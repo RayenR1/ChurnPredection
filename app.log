@@ -372,3 +372,63 @@ dtype: int64
 [1 rows x 15 columns]
 2024-12-04 16:53:57,149 - INFO - Numerical columns standardized.
 2024-12-04 16:53:57,157 - INFO - Predictions made successfully. Decision Tree: 0, Random Forest: 0
+2024-12-04 18:10:15,010 - INFO - Reference data loaded successfully.
+2024-12-04 18:10:15,691 - INFO - Models and scaler loaded successfully.
+2024-12-04 18:17:51,137 - INFO - Received input data: {'State': 'AL', 'Account_length': 120, 'Area_code': 415, 'International_plan': 'No', 'Voice_mail_plan': 'Yes', 'Number_vmail_messages': 25, 'Total_day_calls': 100, 'Total_day_charge': 20.5, 'Total_eve_calls': 80, 'Total_eve_charge': 15.0, 'Total_night_calls': 70, 'Total_night_charge': 12.0, 'Total_intl_calls': 10, 'Total_intl_charge': 5.0, 'Customer_service_calls': 1}
+2024-12-04 18:17:51,145 - INFO - Input data converted to DataFrame:   State  Account length  Area code  ... Total intl calls Total intl charge  Customer service calls
+0    AL             120        415  ...               10               5.0                       1
+
+[1 rows x 15 columns]
+2024-12-04 18:17:51,224 - INFO - Numerical columns standardized.
+2024-12-04 18:17:51,235 - INFO - Predictions made successfully. Decision Tree: 0, Random Forest: 0
+2024-12-04 18:18:52,514 - INFO - Received input data: {'State': 'AL', 'Account_length': 120, 'Area_code': 415, 'International_plan': 'No', 'Voice_mail_plan': 'Yes', 'Number_vmail_messages': 25, 'Total_day_calls': 100, 'Total_day_charge': 20.5, 'Total_eve_calls': 80, 'Total_eve_charge': 15.0, 'Total_night_calls': 70, 'Total_night_charge': 12.0, 'Total_intl_calls': 10, 'Total_intl_charge': 5.0, 'Customer_service_calls': 1}
+2024-12-04 18:18:52,516 - INFO - Input data converted to DataFrame:   State  Account length  Area code  ... Total intl calls Total intl charge  Customer service calls
+0    AL             120        415  ...               10               5.0                       1
+
+[1 rows x 15 columns]
+2024-12-04 18:18:52,548 - INFO - Numerical columns standardized.
+2024-12-04 18:18:52,558 - INFO - Predictions made successfully. Decision Tree: 0, Random Forest: 0
+2024-12-04 18:21:04,423 - INFO - Received input data: {'State': 'AL', 'Account_length': 120, 'Area_code': 415, 'International_plan': 'No', 'Voice_mail_plan': 'Yes', 'Number_vmail_messages': 25, 'Total_day_calls': 100, 'Total_day_charge': 20.5, 'Total_eve_calls': 80, 'Total_eve_charge': 15.0, 'Total_night_calls': 70, 'Total_night_charge': 12.0, 'Total_intl_calls': 10, 'Total_intl_charge': 5.0, 'Customer_service_calls': 5}
+2024-12-04 18:21:04,425 - INFO - Input data converted to DataFrame:   State  Account length  Area code  ... Total intl calls Total intl charge  Customer service calls
+0    AL             120        415  ...               10               5.0                       5
+
+[1 rows x 15 columns]
+2024-12-04 18:21:04,452 - INFO - Numerical columns standardized.
+2024-12-04 18:21:04,460 - INFO - Predictions made successfully. Decision Tree: 0, Random Forest: 0
+2024-12-04 18:22:57,476 - INFO - Received input data: {'State': 'AL', 'Account_length': 120, 'Area_code': 415, 'International_plan': 'No', 'Voice_mail_plan': 'Yes', 'Number_vmail_messages': 25, 'Total_day_calls': 100, 'Total_day_charge': 20.5, 'Total_eve_calls': 80, 'Total_eve_charge': 15.0, 'Total_night_calls': 70, 'Total_night_charge': 12.0, 'Total_intl_calls': 10, 'Total_intl_charge': 5.0, 'Customer_service_calls': 5}
+2024-12-04 18:22:57,480 - INFO - Input data converted to DataFrame:   State  Account length  Area code  ... Total intl calls Total intl charge  Customer service calls
+0    AL             120        415  ...               10               5.0                       5
+
+[1 rows x 15 columns]
+2024-12-04 18:22:57,526 - INFO - Numerical columns standardized.
+2024-12-04 18:22:57,536 - INFO - Predictions made successfully. Decision Tree: 0, Random Forest: 0
+2024-12-04 18:33:31,054 - INFO - Reference data loaded successfully.
+2024-12-04 18:33:34,402 - INFO - Models and scaler loaded successfully.
+2024-12-04 18:33:38,482 - INFO - Received input data: {'State': 'KS', 'Account_length': 120, 'Area_code': 415, 'International_plan': 'No', 'Voice_mail_plan': 'Yes', 'Number_vmail_messages': 25, 'Total_day_calls': 100, 'Total_day_charge': 20.5, 'Total_eve_calls': 80, 'Total_eve_charge': 15.0, 'Total_night_calls': 70, 'Total_night_charge': 12.0, 'Total_intl_calls': 10, 'Total_intl_charge': 5.0, 'Customer_service_calls': 1}
+2024-12-04 18:33:38,484 - INFO - Input data converted to DataFrame:   State  Account length  Area code  ... Total intl calls Total intl charge  Customer service calls
+0    KS             120        415  ...               10               5.0                       1
+
+[1 rows x 15 columns]
+2024-12-04 18:33:38,505 - INFO - Numerical columns standardized.
+2024-12-04 18:33:38,509 - INFO - Predictions made successfully. Decision Tree: 0, Random Forest: 0
+2024-12-04 18:34:11,834 - INFO - Received input data: {'State': 'AL', 'Account_length': 120, 'Area_code': 415, 'International_plan': 'No', 'Voice_mail_plan': 'Yes', 'Number_vmail_messages': 25, 'Total_day_calls': 100, 'Total_day_charge': 20.5, 'Total_eve_calls': 80, 'Total_eve_charge': 15.0, 'Total_night_calls': 70, 'Total_night_charge': 12.0, 'Total_intl_calls': 10, 'Total_intl_charge': 5.0, 'Customer_service_calls': 1}
+2024-12-04 18:34:11,836 - INFO - Input data converted to DataFrame:   State  Account length  Area code  ... Total intl calls Total intl charge  Customer service calls
+0    AL             120        415  ...               10               5.0                       1
+
+[1 rows x 15 columns]
+2024-12-04 18:34:11,900 - INFO - Numerical columns standardized.
+2024-12-04 18:34:11,917 - INFO - Predictions made successfully. Decision Tree: 0, Random Forest: 0
+2024-12-04 18:34:29,454 - INFO - Received input data: {'State': 'AL', 'Account_length': 120, 'Area_code': 415, 'International_plan': 'No', 'Voice_mail_plan': 'Yes', 'Number_vmail_messages': 25, 'Total_day_calls': 100, 'Total_day_charge': 20.5, 'Total_eve_calls': 80, 'Total_eve_charge': 15.0, 'Total_night_calls': 70, 'Total_night_charge': 12.0, 'Total_intl_calls': 10, 'Total_intl_charge': 5.0, 'Customer_service_calls': 5}
+2024-12-04 18:34:29,457 - INFO - Input data converted to DataFrame:   State  Account length  Area code  ... Total intl calls Total intl charge  Customer service calls
+0    AL             120        415  ...               10               5.0                       5
+
+[1 rows x 15 columns]
+2024-12-04 18:34:29,499 - INFO - Numerical columns standardized.
+2024-12-04 18:34:29,513 - INFO - Predictions made successfully. Decision Tree: 0, Random Forest: 0
+2024-12-04 18:34:46,794 - INFO - Received input data: {'State': 'AL', 'Account_length': 120, 'Area_code': 415, 'International_plan': 'No', 'Voice_mail_plan': 'Yes', 'Number_vmail_messages': 25, 'Total_day_calls': 100, 'Total_day_charge': 20.5, 'Total_eve_calls': 80, 'Total_eve_charge': 15.0, 'Total_night_calls': 70, 'Total_night_charge': 12.0, 'Total_intl_calls': 10, 'Total_intl_charge': 5.0, 'Customer_service_calls': 5}
+2024-12-04 18:34:46,795 - INFO - Input data converted to DataFrame:   State  Account length  Area code  ... Total intl calls Total intl charge  Customer service calls
+0    AL             120        415  ...               10               5.0                       5
+
+[1 rows x 15 columns]
+2024-12-04 18:34:46,830 - INFO - Numerical columns standardized.
+2024-12-04 18:34:46,838 - INFO - Predictions made successfully. Decision Tree: 0, Random Forest: 0
