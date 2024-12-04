@@ -43,7 +43,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.get("/", response_class=HTMLResponse)
 async def read_html():
     try:
-        with open("api2.html", "r") as f:
+        with open("static/api2.html", "r") as f:
             return HTMLResponse(content=f.read())
     except Exception as e:
         logger.error("Error loading HTML file: %s", e)
