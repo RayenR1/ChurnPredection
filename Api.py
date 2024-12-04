@@ -1,9 +1,10 @@
 import logging
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import joblib
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from fastapi.middleware.cors import CORSMiddleware
 
 # Configure logging
@@ -35,11 +36,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Serve static files (CSS, JS, images)
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Serve the HTML file (api2.html)
+@app.get("/", response_class=HTMLResponse)
+async def read_html():
+    try:
+        with open("api2.html", "r") as f:
+            return HTMLResponse(content=f.read())
+    except Exception as e:
+        logger.error("Error loading HTML file: %s", e)
+        raise HTTPException(status_code=500, detail="An error occurred while loading the HTML file.")
+
 # Load reference data
 try:
-    state_reference = pd.read_csv(r'C:\Users\jlassi\Downloads\API\state_reference.csv')
-    international_plan_reference = pd.read_csv(r'C:\Users\jlassi\Downloads\API\international_plan_reference.csv')
-    voice_mail_plan_reference = pd.read_csv(r'C:\Users\jlassi\Downloads\API\voice_mail_plan_reference.csv')
+    state_reference = pd.read_csv('state_reference.csv')
+    international_plan_reference = pd.read_csv('international_plan_reference.csv')
+    voice_mail_plan_reference = pd.read_csv('voice_mail_plan_reference.csv')
     logger.info("Reference data loaded successfully.")
 except Exception as e:
     logger.error("Error loading reference data: %s", e)
@@ -47,9 +61,9 @@ except Exception as e:
 
 # Load pre-trained models and scaler
 try:
-    scaler_loaded = joblib.load(r'C:\Users\jlassi\Downloads\API\minmax_scaler.pkl')
-    model_decision_tree = joblib.load(r'C:\Users\jlassi\Downloads\API\DecisionTree.pkl')
-    model_random_forest = joblib.load(r'C:\Users\jlassi\Downloads\API\RandomForest.pkl')
+    scaler_loaded = joblib.load('minmax_scaler.pkl')
+    model_decision_tree = joblib.load('DecisionTree.pkl')
+    model_random_forest = joblib.load('RandomForest.pkl')
     logger.info("Models and scaler loaded successfully.")
 except Exception as e:
     logger.error("Error loading models or scaler: %s", e)
