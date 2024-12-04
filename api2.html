@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 1s ease;
+        }
+        .form-container {
+            width: 450px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .prediction-positive {
+            background-color: #ff6b6b;
+            color: white;
+        }
+        .prediction-negative {
+            background-color: #51cf66;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Churn Prediction</h1>
+        <form id="prediction-form">
+            <label for="state">State</label>
+            <select id="state" name="State" required>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>  
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="IA">Iowa</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="MD">Maryland</option>
+                <option value="ME">Maine</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VA">Virginia</option>
+                <option value="VT">Vermont</option>
+                <option value="WA">Washington</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WV">West Virginia</option>
+                <option value="WY">Wyoming</option>
+            </select>
+
+            <label for="account_length">Account Length</label>
+            <input type="number" id="account_length" name="Account_length" value="120" required>
+
+            <label for="area_code">Area Code</label>
+            <input type="number" id="area_code" name="Area_code" value="415" required>
+
+            <label for="international_plan">International Plan</label>
+            <select id="international_plan" name="International_plan" required>
+                <option value="Yes">Yes</option>
+                <option value="No" selected>No</option>
+            </select>
+
+            <label for="voice_mail_plan">Voice Mail Plan</label>
+            <select id="voice_mail_plan" name="Voice_mail_plan" required>
+                <option value="Yes" selected>Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="number_vmail_messages">Number of Voicemail Messages</label>
+            <input type="number" id="number_vmail_messages" name="Number_vmail_messages" value="25" min="0" required>
+
+            <label for="total_day_calls">Total Day Calls</label>
+            <input type="number" id="total_day_calls" name="Total_day_calls" value="100" min="0" required>
+
+            <label for="total_day_charge">Total Day Charge</label>
+            <input type="number" id="total_day_charge" name="Total_day_charge" value="20.5" step="0.01" required>
+
+            <label for="total_eve_calls">Total Evening Calls</label>
+            <input type="number" id="total_eve_calls" name="Total_eve_calls" value="80" min="0" required>
+
+            <label for="total_eve_charge">Total Evening Charge</label>
+            <input type="number" id="total_eve_charge" name="Total_eve_charge" value="15.0" step="0.01" required>
+
+            <label for="total_night_calls">Total Night Calls</label>
+            <input type="number" id="total_night_calls" name="Total_night_calls" value="70" min="0" required>
+
+            <label for="total_night_charge">Total Night Charge</label>
+            <input type="number" id="total_night_charge" name="Total_night_charge" value="12.0" step="0.01" required>
+
+            <label for="total_intl_calls">Total International Calls</label>
+            <input type="number" id="total_intl_calls" name="Total_intl_calls" value="10" min="0" required>
+
+            <label for="total_intl_charge">Total International Charge</label>
+            <input type="number" id="total_intl_charge" name="Total_intl_charge" value="5.0" step="0.01" required>
+
+            <label for="customer_service_calls">Customer Service Calls</label>
+            <input type="number" id="customer_service_calls" name="Customer_service_calls" value="1" min="0" required>
+
+            <button type="button" id="submit-btn">Predict</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', async () => {
+            console.log("Submit button clicked!");
+    
+            // Collect form data
+            try {
+                const formData = {
+                    State: document.getElementById('state').value,
+                    Account_length: parseInt(document.getElementById('account_length').value, 10),
+                    Area_code: parseInt(document.getElementById('area_code').value, 10),
+                    International_plan: document.getElementById('international_plan').value,
+                    Voice_mail_plan: document.getElementById('voice_mail_plan').value,
+                    Number_vmail_messages: parseInt(document.getElementById('number_vmail_messages').value, 10),
+                    Total_day_calls: parseInt(document.getElementById('total_day_calls').value, 10),
+                    Total_day_charge: parseFloat(document.getElementById('total_day_charge').value),
+                    Total_eve_calls: parseInt(document.getElementById('total_eve_calls').value, 10),
+                    Total_eve_charge: parseFloat(document.getElementById('total_eve_charge').value),
+                    Total_night_calls: parseInt(document.getElementById('total_night_calls').value, 10),
+                    Total_night_charge: parseFloat(document.getElementById('total_night_charge').value),
+                    Total_intl_calls: parseInt(document.getElementById('total_intl_calls').value, 10),
+                    Total_intl_charge: parseFloat(document.getElementById('total_intl_charge').value),
+                    Customer_service_calls: parseInt(document.getElementById('customer_service_calls').value, 10),
+                };
+               
+                // Log collected form data
+                console.log("Form data collected:", formData);
+    
+                // Send POST request
+                console.log("Sending POST request...");
+                const response = await fetch('http://127.0.0.1:8000/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+    
+                // Check response status
+                console.log("Response received:", response.status);
+                if (!response.ok) {
+                    console.error("Server returned an error:", response.statusText);
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+    
+                // Parse response data
+                const result = await response.json();
+                console.log("Response data parsed:", result);
+    
+                // Update UI based on response
+                const body = document.body;
+                if ( result.Prediction_Random_Forest === 1) {
+                    body.style.backgroundColor = '#ff6b6b'; // Red for churn
+                    console.log("Prediction indicates churn.");
+                } else {
+                    body.style.backgroundColor = '#51cf66'; // Green for no churn
+                    console.log("Prediction indicates no churn.");
+                }
+                document.getElementById('result').textContent = 
+                result.Prediction_Random_Forest === 1 ? 'churn' : 'Non churn';
+
+    
+                // Reset background color after delay
+                setTimeout(() => {
+                    body.style.backgroundColor = '#f4f4f9';
+                    console.log("Background color reset.");
+                }, 3000);
+    
+            } catch (error) {
+                console.error("An error occurred during form submission:", error);
+                document.getElementById('result').textContent = 'An error occurred!';
+            }
+        });
+    </script>
+    </body>
+</html>
